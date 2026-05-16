@@ -17,17 +17,17 @@ export function SectionHeader({ label, title, highlight, description }: SectionH
         <span>{label}</span>
       </div>
       
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium leading-[1.15] text-primary mb-6">
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-medium leading-[1.15] text-heading mb-6">
         {parts.map((part, i) => 
           part.toLowerCase() === highlight.toLowerCase() ? (
-            <span key={i} className="italic text-accent">{part}</span>
+            <span key={i} className="italic text-terracota">{part}</span>
           ) : (
             <span key={i}>{part}</span>
           )
         )}
       </h2>
 
-      <p className="text-lg text-secondary leading-relaxed font-light max-w-2xl">
+      <p className="text-lg text-body leading-relaxed font-light max-w-2xl">
         {description}
       </p>
     </div>

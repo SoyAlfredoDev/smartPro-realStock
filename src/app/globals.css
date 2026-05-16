@@ -1,63 +1,80 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-
-  --color-main: var(--bg-main);
-  --color-surface: var(--bg-surface);
-  --color-accent-muted: var(--bg-accent-muted);
-
-  --color-primary: var(--text-primary);
-  --color-secondary: var(--text-secondary);
-  --color-accent: var(--text-accent);
-  --color-muted: var(--text-muted);
-
-  --color-brand: var(--color-primary);
-  --color-brand-hover: var(--color-primary-hover);
-  --color-brand-secondary: var(--color-secondary);
-  --color-brand-border: var(--color-secondary-border);
-  --color-brand-text: var(--color-secondary-text);
-
-  --color-border-subtle: var(--border-color);
-
-  --radius-xl: var(--border-radius);
-  --radius-2xl: calc(var(--border-radius) * 1.5);
-  --radius-3xl: calc(var(--border-radius) * 2);
-  --radius-pill: 9999px;
-
-  /* Shadows for depth */
-  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0 10px 30px -4px rgba(0, 0, 0, 0.08);
-}
+/* ============================================================
+   RealStock — Design Token System
+   "Minimal Sophisticated Latin"
+   ============================================================
+   ARCHITECTURE:
+   - :root defines the raw CSS custom properties (source of truth).
+   - @theme maps them into Tailwind utility classes.
+   - Naming avoids collisions: text-* for type, brand-* for actions,
+     surface-* for backgrounds, border-* for edges.
+   ============================================================ */
 
 @layer base {
   :root {
-    /* Fondo principal y superficies */
-    --bg-main: #fcfbf8;           /* Un tono marfil muy suave */
-    --bg-surface: #ffffff;        /* Blanco puro para tarjetas, etc. */
-    --bg-accent-muted: #f5f1e8;   /* Beige pálido suave para insignias y botones secundarios */
+    /* ── Surface & Background ── */
+    --bg-main: #fcfbf8;
+    --bg-surface: #ffffff;
+    --bg-accent-muted: #f5f1e8;
 
-    /* Colores de Texto */
-    --text-primary: #121212;      /* Un gris muy oscuro para títulos y texto principal */
-    --text-secondary: #5a5a5a;    /* Un gris medio para descripciones y navegación */
-    --text-accent: #b07071;       /* Terracota/Rosa polvoriento para palabras clave como 'marcas reales' */
-    --text-muted: #808080;        /* Gris más tenue para textos de insignias */
+    /* ── Typography ── */
+    --text-heading: #121212;
+    --text-body: #5a5a5a;
+    --text-terracota: #b07071;
+    --text-muted: #808080;
 
-    /* Colores de Acción y Marca */
-    --color-primary: #b07071;     /* Terracota/Rosa polvoriento para botones principales CTA y acentos */
-    --color-primary-hover: #986061;
-    --color-secondary: #fcfbf8;   /* Fondo de botón secundario (igual que el fondo principal) */
-    --color-secondary-border: #f0e6d6; /* Borde sutil del botón secundario */
-    --color-secondary-text: #121212;  /* Texto oscuro para botón secundario */
+    /* ── Brand / Action ── */
+    --brand-primary: #b07071;
+    --brand-primary-hover: #986061;
+    --brand-secondary-bg: #fcfbf8;
+    --brand-secondary-border: #f0e6d6;
+    --brand-secondary-text: #121212;
 
-    /* Bordes */
-    --border-color: #f0e6d6;      /* Borde sutil y claro para tarjetas, botones, etc. */
-    --border-radius: 12px;        /* Bordes redondeados generosos */
+    /* ── Borders ── */
+    --border-default: #f0e6d6;
+    --radius-base: 12px;
   }
 
   body {
     background-color: var(--bg-main);
-    color: var(--text-primary);
+    color: var(--text-heading);
   }
+}
+
+@theme {
+  /* ── Fonts ── */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  /* ── Surfaces  →  bg-main, bg-surface, bg-accent-muted ── */
+  --color-main: var(--bg-main);
+  --color-surface: var(--bg-surface);
+  --color-accent-muted: var(--bg-accent-muted);
+
+  /* ── Text  →  text-heading, text-body, text-terracota, text-muted ── */
+  --color-heading: var(--text-heading);
+  --color-body: var(--text-body);
+  --color-terracota: var(--text-terracota);
+  --color-muted: var(--text-muted);
+
+  /* ── Brand  →  bg-brand, text-brand, hover:bg-brand-hover ── */
+  --color-brand: var(--brand-primary);
+  --color-brand-hover: var(--brand-primary-hover);
+  --color-brand-secondary-bg: var(--brand-secondary-bg);
+  --color-brand-secondary-border: var(--brand-secondary-border);
+  --color-brand-secondary-text: var(--brand-secondary-text);
+
+  /* ── Borders  →  border-default ── */
+  --color-border-default: var(--border-default);
+
+  /* ── Radii ── */
+  --radius-xl: var(--radius-base);
+  --radius-2xl: calc(var(--radius-base) * 1.5);
+  --radius-3xl: calc(var(--radius-base) * 2);
+  --radius-pill: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 10px 30px -4px rgba(0, 0, 0, 0.08);
 }

@@ -4,17 +4,18 @@ import { motion } from "framer-motion";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ContentSection } from "@/components/sections/ContentSection";
 import { Footer } from "@/components/sections/Footer";
+import { SocialFloatingSidebar } from "@/components/ui/SocialFloatingSidebar";
 
 export default function Home() {
 
   return (
-    <main className="min-h-screen pb-24">
+    <main className="min-h-screen">
       {/* Navigation */}
       <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto w-full">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="font-serif text-2xl font-semibold tracking-wide"
+          className="font-serif text-2xl font-semibold tracking-wide text-heading"
         >
           RealStock.
         </motion.div>
@@ -22,11 +23,11 @@ export default function Home() {
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="hidden md:flex items-center space-x-8 text-sm font-medium text-secondary"
+          className="hidden md:flex items-center space-x-8 text-sm font-medium text-body"
         >
-          <a href="#" className="hover:text-primary transition-colors">Catálogo</a>
-          <a href="#" className="hover:text-primary transition-colors">Colecciones</a>
-          <a href="#" className="hover:text-primary transition-colors">Precios</a>
+          <a href="#" className="hover:text-heading transition-colors">Catálogo</a>
+          <a href="#" className="hover:text-heading transition-colors">Colecciones</a>
+          <a href="#" className="hover:text-heading transition-colors">Precios</a>
         </motion.div>
 
         <motion.div 
@@ -34,12 +35,16 @@ export default function Home() {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center space-x-4"
         >
-          <button className="text-sm font-medium text-secondary hover:text-primary transition-colors hidden sm:block">
+          <button className="text-sm font-medium text-body hover:text-heading transition-colors hidden sm:block">
             Iniciar sesión
           </button>
-          <button className="bg-primary text-white text-sm font-medium px-6 py-2.5 rounded-full hover:bg-primary-hover transition-colors shadow-soft">
+          <motion.button 
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-brand text-white text-sm font-medium px-6 py-2.5 rounded-full hover:bg-brand-hover transition-colors shadow-soft"
+          >
             Suscribirse
-          </button>
+          </motion.button>
         </motion.div>
       </nav>
 
@@ -49,6 +54,8 @@ export default function Home() {
       <ContentSection />
       
       <Footer />
+
+      <SocialFloatingSidebar />
     </main>
   );
 }

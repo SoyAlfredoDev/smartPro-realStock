@@ -10,11 +10,11 @@ interface ButtonProps extends HTMLMotionProps<"button"> {
 }
 
 export function Button({ variant = "primary", children, icon, className = "", ...props }: ButtonProps) {
-  const baseStyles = "inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full font-medium transition-all shadow-soft";
+  const baseStyles = "inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-full font-medium transition-all cursor-pointer";
   
   const variants = {
-    primary: "bg-primary text-white hover:bg-primary-hover hover:shadow-hover",
-    secondary: "bg-secondary text-secondary-text border border-secondary-border hover:bg-accent-muted hover:shadow-hover"
+    primary: "bg-brand text-white hover:bg-brand-hover shadow-soft hover:shadow-hover",
+    secondary: "bg-brand-secondary-bg text-brand-secondary-text border border-brand-secondary-border hover:bg-accent-muted shadow-soft hover:shadow-hover"
   };
 
   return (

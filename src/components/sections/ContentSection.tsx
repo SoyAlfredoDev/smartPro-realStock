@@ -60,9 +60,9 @@ export function ContentSection() {
   };
 
   return (
-    <section className="px-6 md:px-12 py-24 max-w-7xl mx-auto w-full relative">
+    <section className="px-6 md:px-12 py-28 max-w-7xl mx-auto w-full relative">
       {/* Top Block: Header & Info */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
         <div className="lg:col-span-8">
           <SectionHeader 
             label="Nuestra solución"
@@ -82,7 +82,7 @@ export function ContentSection() {
 
       {/* Center Block: Grid */}
       <motion.div 
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-20"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"

@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
-      <body className="min-h-screen bg-main text-primary font-sans antialiased selection:bg-primary selection:text-white">
+      <body className="min-h-screen bg-main text-heading font-sans antialiased selection:bg-brand selection:text-white">
         {children}
       </body>
     </html>

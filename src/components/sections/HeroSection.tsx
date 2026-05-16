@@ -63,12 +63,12 @@ export function HeroSection() {
         >
           <motion.div 
             variants={itemVariants}
-            className="inline-flex items-center space-x-2 bg-accent-muted text-muted px-4 py-1.5 rounded-full text-xs font-semibold mb-6 uppercase tracking-widest"
+            className="inline-flex items-center space-x-2 bg-accent-muted text-muted px-4 py-1.5 rounded-full text-xs font-semibold mb-8 uppercase tracking-widest"
           >
             <span>Contenido Audiovisual Latino</span>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mb-6">
+          <motion.div variants={itemVariants} className="mb-8">
             <Title 
               text="Contenido real para marcas reales." 
               highlight="marcas reales" 
@@ -77,7 +77,7 @@ export function HeroSection() {
 
           <motion.p 
             variants={itemVariants}
-            className="text-lg text-secondary mb-10 max-w-md leading-relaxed font-light"
+            className="text-lg text-body mb-12 max-w-md leading-relaxed font-light"
           >
             Descubre y licencia imágenes y videos premium que capturan la verdadera identidad, cultura y diversidad de Latinoamérica. Sin estereotipos.
           </motion.p>
@@ -123,7 +123,7 @@ export function HeroSection() {
         >
           {/* Main Large Image (2x2) */}
           <motion.div 
-            className="col-span-2 row-span-2 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-subtle"
+            className="col-span-2 row-span-2 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-default"
             variants={imageItemVariants}
           >
             <Image 
@@ -137,7 +137,7 @@ export function HeroSection() {
 
           {/* Top Right (1x1) */}
           <motion.div 
-            className="col-span-1 row-span-1 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-subtle"
+            className="col-span-1 row-span-1 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-default"
             variants={imageItemVariants}
           >
             <Image 
@@ -150,7 +150,7 @@ export function HeroSection() {
 
           {/* Middle Right (1x1) */}
           <motion.div 
-            className="col-span-1 row-span-1 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-subtle"
+            className="col-span-1 row-span-1 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-default"
             variants={imageItemVariants}
           >
             <Image 
@@ -163,7 +163,7 @@ export function HeroSection() {
 
           {/* Bottom Left (1x1) */}
           <motion.div 
-            className="col-span-1 row-span-1 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-subtle"
+            className="col-span-1 row-span-1 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-default"
             variants={imageItemVariants}
           >
             <Image 
@@ -176,7 +176,7 @@ export function HeroSection() {
 
           {/* Bottom Right Span (2x1) */}
           <motion.div 
-            className="col-span-2 row-span-1 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-subtle"
+            className="col-span-2 row-span-1 relative rounded-2xl md:rounded-3xl overflow-hidden shadow-soft border border-border-default"
             variants={imageItemVariants}
           >
             <Image 
