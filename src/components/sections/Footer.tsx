@@ -1,10 +1,27 @@
 "use client";
 
+import { FormEvent, useState } from "react";
 import { motion } from "framer-motion";
 import { Camera, Briefcase, Video, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [acceptPrivacy, setAcceptPrivacy] = useState(false);
+  const [privacyError, setPrivacyError] = useState(false);
+
+  function handleNewsletterSubmit(event: FormEvent<HTMLFormElement>) {
+    if (!acceptPrivacy) {
+      event.preventDefault();
+      setPrivacyError(true);
+      return;
+    }
+
+    setPrivacyError(false);
+    // UI-only newsletter for now; consent is mandatory before any future submit.
+    event.preventDefault();
+  }
 
   return (
     <footer className="bg-surface border-t border-border-default pt-24 pb-8 w-full">
@@ -56,19 +73,63 @@ export function Footer() {
             <p className="text-body text-sm font-light mb-6">
               Recibe las últimas colecciones y recursos visuales premium en tu bandeja de entrada.
             </p>
-            <form className="flex items-center w-full relative max-w-sm">
-              <input 
-                type="email" 
-                placeholder="Tu correo electrónico" 
-                className="w-full bg-main border border-border-default rounded-full py-3.5 pl-6 pr-16 text-sm text-heading placeholder:text-muted focus:outline-none focus:border-terracota transition-colors"
-              />
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="absolute right-1.5 top-1.5 bottom-1.5 bg-brand text-white rounded-full w-10 flex items-center justify-center hover:bg-brand-hover transition-colors shadow-sm"
-              >
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
+            <form
+              className="flex flex-col gap-3 w-full max-w-sm"
+              onSubmit={handleNewsletterSubmit}
+              noValidate
+            >
+              <div className="relative flex items-center w-full">
+                <input 
+                  type="email"
+                  name="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                  required
+                  placeholder="Tu correo electrónico" 
+                  className="w-full bg-main border border-border-default rounded-full py-3.5 pl-6 pr-16 text-sm text-heading placeholder:text-muted focus:outline-none focus:border-terracota transition-colors"
+                />
+                <motion.button 
+                  type="submit"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="absolute right-1.5 top-1.5 bottom-1.5 bg-brand text-white rounded-full w-10 flex items-center justify-center hover:bg-brand-hover transition-colors shadow-sm"
+                  aria-label="Suscribirse al newsletter"
+                >
+                  <ArrowRight className="w-4 h-4" />
+                </motion.button>
+              </div>
+
+              <label className="flex items-start gap-2.5 text-xs leading-relaxed text-body font-light">
+                <input
+                  type="checkbox"
+                  checked={acceptPrivacy}
+                  onChange={(event) => {
+                    setAcceptPrivacy(event.target.checked);
+                    if (event.target.checked) setPrivacyError(false);
+                  }}
+                  required
+                  aria-invalid={privacyError}
+                  className="mt-0.5 size-3.5 shrink-0 accent-brand"
+                />
+                <span>
+                  Autorizo el tratamiento de mis datos personales conforme a la
+                  legislación chilena vigente (Ley N° 21.719) y la{" "}
+                  <Link
+                    href="/politica-privacidad"
+                    className="font-medium text-heading underline-offset-2 hover:underline"
+                  >
+                    política de privacidad
+                  </Link>
+                  .
+                </span>
+              </label>
+
+              {privacyError ? (
+                <p className="text-xs text-red-700" role="alert">
+                  Debes autorizar el tratamiento de tus datos personales para
+                  continuar.
+                </p>
+              ) : null}
             </form>
           </div>
         </div>
